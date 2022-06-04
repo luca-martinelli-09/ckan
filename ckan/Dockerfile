@@ -12,7 +12,6 @@ RUN cp /usr/share/zoneinfo/$TZ /etc/localtime
 
 # Install needed packages
 RUN apk add proj proj-dev proj-util libxml2-dev libxslt-dev geos
-RUN pip install rdflib-jsonld
 
 # Install Harvest
 RUN pip install -e git+https://github.com/ckan/ckanext-harvest.git#egg=ckanext-harvest
@@ -33,6 +32,9 @@ RUN pip install -r https://raw.githubusercontent.com/ckan/ckanext-dcat/master/re
 RUN git clone https://github.com/geosolutions-it/ckanext-dcatapit.git
 RUN pip install -e ckanext-dcatapit
 RUN pip install -r ckanext-dcatapit/requirements.txt
+
+# Install other nedded pip packages
+RUN pip install rdflib rdflib-jsonld
 
 # Execute setups
 COPY docker-entrypoint.d/* /docker-entrypoint.d/

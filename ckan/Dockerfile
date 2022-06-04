@@ -2,6 +2,9 @@ FROM openknowledge/ckan-base:2.9
 
 MAINTAINER Luca Martinelli <luca.martinelli@comune.sona.vr.it>
 
+# Upgrade pip
+RUN python3 -m pip install --upgrade pip
+
 # Set timezone
 ARG TZ
 RUN echo $TZ > /etc/timezone

@@ -1,6 +1,6 @@
 FROM alpine:3.13
 
-MAINTAINER Luca Martinelli <luca.martinelli@comune.sona.vr.it>
+LABEL maintainer="Luca Martinelli <martinelliluca98@gmail.com>"
 
 ENV APP_DIR=/srv/app
 ENV GIT_BRANCH 0.0.18

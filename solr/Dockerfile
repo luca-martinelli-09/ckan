@@ -1,6 +1,6 @@
 FROM solr:8
 
-MAINTAINER Luca Martinelli <luca.martinelli@comune.sona.vr.it>
+LABEL maintainer="Luca Martinelli <martinelliluca98@gmail.com>"
 
 EXPOSE 8983
 

@@ -56,10 +56,17 @@ GEONAMES__USERNAME # Follow the guide for geosolutions-it/ckanext-dcatapit exten
 ```
 
 ### Step 3
-Execute with Docker
+Rename `ckan/Dockerfile.template` to `Dockerfile` and, if needed, add your commands. Then execute with Docker
+
+    docker-compose build
+    docker-compose up -d
+
+Or
 
     docker compose build
     docker compose up -d
+
+For Docker Compose v2.
 
 ## Troubleshooting
 ### First startup

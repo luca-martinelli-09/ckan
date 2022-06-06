@@ -46,6 +46,13 @@ CKAN_ORG_EMAIL # Email of the organization
 
 CKAN__DATAPUSHER__CALLBACK_URL_BASE # Same as CKAN_SITE_URL
 
+# Core
+CKAN__SITE_TITLE # The website title (usually the P.A. name)
+CKAN__SITE_DESCRIPTION # Website description
+CKAN__SITE_ABOUT # Website long description
+CKAN__SITE_LOGO # Url for the logo
+CKAN__FAVICON # Url for the favicon
+
 # Email setup
 CKAN_SMTP_SERVER
 CKAN_SMTP_STARTTLS

@@ -77,24 +77,40 @@ At first startup CKAN probably can't configure all the plugins and initialize th
 
     docker compose restart
 
+Or
+
+    docker compose restart
+
+For Docker Compose v2.
+
 ### Wrong username or password
 Try entering in the CKAN shell executing
 
     docker exec -it ckan sh
   
-And then execute
+Then execute
 
     ckan -c $CKAN_INI user add $CKAN_SYSADMIN_NAME  password=$CKAN_SYSADMIN_PASSWORD email=$CKAN_SYSADMIN_EMAIL
     ckan -c $CKAN_INI sysadmin add $CKAN_SYSADMIN_NAME
 
-### Internal server error when adding an Organization
+### Internal server error when adding an Organization or at default Organization didn't added
 This can happens due to wrong permissions for the `/var/lib/ckan` folder. To solve this problem, first enter in the CKAN shell executing
 
     docker exec -it ckan sh
 
-And then set the right permissions
+Then set the right permissions
 
     chown -R ckan:ckan /var/lib/ckan
+  
+Finally, restart
+
+    docker-compose restart
+
+Or
+
+    docker compose restart
+
+For Docker Compose v2.
 
 ## Plugins
 - [envvars](https://github.com/okfn/ckanext-envvars)

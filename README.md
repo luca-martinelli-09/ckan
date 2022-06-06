@@ -41,6 +41,9 @@ CKAN_SYSADMIN_NAME # Name of the sysadmin account
 CKAN_SYSADMIN_PASSWORD # Password for the sysadmin account
 CKAN_SYSADMIN_EMAIL # Email for the sysadmin account
 
+CKAN_ORG_VAT # IPA/VAT/IVA of the organization
+CKAN_ORG_EMAIL # Email of the organization
+
 CKAN__DATAPUSHER__CALLBACK_URL_BASE # Same as CKAN_SITE_URL
 
 # Email setup

@@ -8,8 +8,8 @@ ARG TZ
 RUN echo $TZ > /etc/timezone
 RUN cp /usr/share/zoneinfo/$TZ /etc/localtime
 
-# Install needed packages
-RUN apk add proj proj-dev proj-util libxml2-dev libxslt-dev geos
+# Install required packages
+RUN apk add proj proj-dev proj-util libxml2-dev libxslt-dev geos jq jo
 
 # Install Harvest
 RUN pip install -e git+https://github.com/ckan/ckanext-harvest.git#egg=ckanext-harvest
@@ -30,6 +30,10 @@ RUN pip install -r https://raw.githubusercontent.com/ckan/ckanext-dcat/master/re
 RUN git clone https://github.com/geosolutions-it/ckanext-dcatapit.git
 RUN pip install -e ckanext-dcatapit
 RUN pip install -r ckanext-dcatapit/requirements.txt
+
+# Copy default groups data
+COPY groups/ /tmp/ckan-groups/
+RUN mv /tmp/ckan-groups/groups ./src/ckan/ckan/public/base/images
 
 # Install other plugins
 # RUN pip install -e ...

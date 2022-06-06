@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo chown -R ckan:ckan /var/lib/ckan
+
 # Add organization
 add_organization () {
   until $(curl --output /dev/null --silent --head --fail "${CKAN_SITE_URL}"); do
@@ -10,7 +12,7 @@ add_organization () {
   CKAN_SITE_URL=${CKAN_SITE_URL%/}
   API_KEY=$(psql ${CKAN_SQLALCHEMY_URL} -t -c "select apikey from public.user where name='${CKAN_SITE_ID}';")
 
-  ORGANIZATION_DATA=$(jo name="${CKAN_SITE_ID}" email="${CKAN_ORG_EMAIL}" identifier="${CKAN_ORG_VAT}" title="${CKAN__SITE_TITLE}" description="Dataset inseriti dal personale per conto del ${CKAN__SITE_TITLE}." users="$(jo -p -a $(jo name="${CKAN_SITE_ID}") $(jo name="${CKAN_SYSADMIN_NAME}"))")
+  ORGANIZATION_DATA=$(jo name="${CKAN_SITE_ID}" email="${CKAN_ORG_EMAIL}" -s identifier="${CKAN_ORG_VAT}" title="${CKAN__SITE_TITLE}" description="Dataset inseriti dal personale per conto del ${CKAN__SITE_TITLE}." users="$(jo -p -a $(jo name="${CKAN_SITE_ID}") $(jo name="${CKAN_SYSADMIN_NAME}"))")
 
   curl -i -H "X-CKAN-API-Key: ${API_KEY}" -XPOST -d "${ORGANIZATION_DATA}" "${CKAN_SITE_URL}"/api/3/action/organization_create
 }

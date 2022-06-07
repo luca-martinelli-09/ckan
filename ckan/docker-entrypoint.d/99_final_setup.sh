@@ -8,6 +8,7 @@ ckan -c $CKAN_INI user add $CKAN_SYSADMIN_NAME password=$CKAN_SYSADMIN_PASSWORD 
 ckan -c $CKAN_INI sysadmin add $CKAN_SYSADMIN_NAME
 
 # Setup organizations and groups
+chmod +x /tmp/ckan-groups/ckan_setup.sh
 nohup /tmp/ckan-groups/ckan_setup.sh &> /tmp/ckan-groups/log &
 
 exec "$@"

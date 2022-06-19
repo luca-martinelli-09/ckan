@@ -20,7 +20,7 @@ RUN pip install -e git+https://github.com/ckan/ckanext-spatial.git#egg=ckanext-s
 RUN pip install -r https://raw.githubusercontent.com/ckan/ckanext-spatial/master/requirements.txt
 
 # Install GeoView
-RUN pip install ckanext-geoview
+RUN pip install -e git+https://github.com/ckan/ckanext-geoview#egg=ckanext-geoview
 
 # Install Multilang
 RUN pip install -e git+https://github.com/geosolutions-it/ckanext-multilang#egg=ckanext-multilang

@@ -125,6 +125,7 @@ For Docker Compose v2.
   - text_view
   - image_view
   - recline_view
+  - [geoview](https://github.com/ckan/ckanext-geoview)
 - datastore
 - datapusher
 - [spatial](https://github.com/ckan/ckanext-spatial)

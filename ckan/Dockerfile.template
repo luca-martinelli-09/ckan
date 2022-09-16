@@ -13,7 +13,7 @@ RUN apk add proj proj-dev proj-util libxml2-dev libxslt-dev geos jq jo
 
 # Install Harvest
 RUN pip install -e git+https://github.com/ckan/ckanext-harvest.git#egg=ckanext-harvest
-RUN pip install -r https://raw.githubusercontent.com/ckan/ckanext-harvest/master/pip-requirements.txt
+RUN pip install -r https://raw.githubusercontent.com/ckan/ckanext-harvest/master/requirements.txt
 
 # Install Spatial
 RUN pip install -e git+https://github.com/ckan/ckanext-spatial.git#egg=ckanext-spatial

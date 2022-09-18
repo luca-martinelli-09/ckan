@@ -29,7 +29,7 @@ services:
       - "8800:8800"
 
   db:
-    container_name: db
+    container_name: db-ckan
     build:
       context: postgresql/
       args:

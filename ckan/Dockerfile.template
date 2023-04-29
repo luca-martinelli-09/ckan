@@ -1,4 +1,4 @@
-FROM openknowledge/ckan-base:2.9
+FROM openknowledge/ckan-base:2.10
 
 # Upgrade pip
 RUN python3 -m pip install --upgrade pip
@@ -9,7 +9,7 @@ RUN echo $TZ > /etc/timezone
 RUN cp /usr/share/zoneinfo/$TZ /etc/localtime
 
 # Install required packages
-RUN apk add proj proj-dev proj-util libxml2-dev libxslt-dev geos jq jo
+RUN apk add proj proj-dev proj-util libxml2-dev libxslt-dev geos jq jo geos-dev
 
 # Install Harvest
 RUN pip install -e git+https://github.com/ckan/ckanext-harvest.git#egg=ckanext-harvest

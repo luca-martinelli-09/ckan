@@ -1,4 +1,4 @@
-FROM openknowledge/ckan-base:2.10
+FROM openknowledge/ckan-base:2.9
 
 # Upgrade pip
 RUN python3 -m pip install --upgrade pip
@@ -12,12 +12,12 @@ RUN cp /usr/share/zoneinfo/$TZ /etc/localtime
 RUN apk add proj proj-dev proj-util libxml2-dev libxslt-dev geos jq jo geos-dev
 
 # Install Harvest
-RUN pip install -e git+https://github.com/ckan/ckanext-harvest.git#egg=ckanext-harvest
-RUN pip install -r https://raw.githubusercontent.com/ckan/ckanext-harvest/master/requirements.txt
+RUN pip install -e git+https://github.com/ckan/ckanext-harvest.git@v1.4.2#egg=ckanext-harvest
+RUN pip install -r https://raw.githubusercontent.com/ckan/ckanext-harvest/v1.4.2/requirements.txt
 
 # Install Spatial
-RUN pip install -e git+https://github.com/ckan/ckanext-spatial.git#egg=ckanext-spatial
-RUN pip install -r https://raw.githubusercontent.com/ckan/ckanext-spatial/master/requirements.txt
+RUN pip install -e git+https://github.com/ckan/ckanext-spatial.git@v2.0.0b1#egg=ckanext-spatial
+RUN pip install -r https://raw.githubusercontent.com/ckan/ckanext-spatial/v2.0.0b1/requirements.txt
 
 # Install GeoView
 RUN pip install -e git+https://github.com/ckan/ckanext-geoview#egg=ckanext-geoview
